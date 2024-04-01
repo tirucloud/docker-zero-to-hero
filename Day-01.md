@@ -37,3 +37,27 @@ docker run --rm -it -p 8080:80 simple-nginx
 - -it is used to attach interactive TTY,
 - -p 8080:80 is used to map the port 80 from the container to our computer port 8080,
 - so, if we access localhost:8080 it means we are accessing the container.ip:80.
+```bash
+docker rm -f $(docker ps -aq)
+```
+```bash
+docker-compose --version
+```
+```bash
+vim docker-compose.yml
+```
+```bash
+version: '3'
+
+services:
+  app:
+    build: .
+    image: flask-redis:1.0
+    environment:
+      - FLASK_ENV=development
+    ports:
+      - 5000:5000
+
+  redis:
+    image: redis:4.0.11-alpine
+```
