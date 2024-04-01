@@ -27,6 +27,10 @@ vim index.html
 </body>
 </html>
 ```
+``bash
+vim Dockerfile
+FROM nginx:alpine
+COPY index.html /usr/share/nginx/html/index.html
 ```bash
 docker build -t simple-nginx .
 ```
