@@ -27,3 +27,9 @@ vim index.html
 </body>
 </html>
 ```
+docker build -t simple-nginx .
+docker run --rm -it -p 8080:80 simple-nginx
+- --rm tells docker to remove the container once its stopped,
+- -it is used to attach interactive TTY,
+- -p 8080:80 is used to map the port 80 from the container to our computer port 8080,
+- so, if we access localhost:8080 it means we are accessing the container.ip:80.
