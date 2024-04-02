@@ -10,7 +10,7 @@ docker run -d \
     -e MONGO_INITDB_ROOT_PASSWORD="password" \
     -p 27017:27017 \
     --network mongo-network \
-    --name mongo \
+    --name mongodb \
     mongo
 ```
 ## STEP-3
@@ -21,6 +21,6 @@ docker run -d \
     -p 8081:8081 \
     -e ME_CONFIG_MONGODB_ADMINUSERNAME="admin" \
     -e ME_CONFIG_MONGODB_ADMINPASSWORD="password" \
-    -e ME_CONFIG_MONGODB_SERVER="mongo" \
+    -e ME_CONFIG_MONGODB_SERVER="mongodb" \
     mongo-express
 ```
