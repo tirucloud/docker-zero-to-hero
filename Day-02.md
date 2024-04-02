@@ -1,9 +1,26 @@
-docker run -it --rm \
-    --network web_default \
+# Day-02
+## STEP-1
+```bash
+ docker network create --driver bridge mongo-network
+```
+## STEP-2
+```bash
+docker run  -d \
+    -e ME_CONFIG_MONGODB_ADMINUSERNAME="admin" \
+    -e ME_CONFIG_MONGODB_ADMINPASSWORD="password" \
+    -p 27017:27017 \
+     --network mongo-network \
+    --name mongo \
+    mongo
+```
+## STEP-3
+```bash
+docker run -d \
+    --network mongo-network \
     --name mongo-express \
     -p 8081:8081 \
-    -e ME_CONFIG_OPTIONS_EDITORTHEME="ambiance" \
-    -e ME_CONFIG_MONGODB_SERVER="web_db_1" \
-    -e ME_CONFIG_BASICAUTH_USERNAME="user" \
-    -e ME_CONFIG_BASICAUTH_PASSWORD="fairly long password" \
+    -e ME_CONFIG_MONGODB_ADMINUSERNAME="admin" \
+    -e ME_CONFIG_MONGODB_ADMINPASSWORD="password" \
+    -e ME_CONFIG_MONGODB_SERVER="mongo" \
     mongo-express
+```
