@@ -5,11 +5,11 @@
 ```
 ## STEP-2
 ```bash
-docker run  -d \
+docker run -d \
     -e ME_CONFIG_MONGODB_ADMINUSERNAME="admin" \
     -e ME_CONFIG_MONGODB_ADMINPASSWORD="password" \
     -p 27017:27017 \
-     --network mongo-network \
+    --network mongo-network \
     --name mongo \
     mongo
 ```
